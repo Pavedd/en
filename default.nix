@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-dA7OMDGRdwC0VV59luxpB3sWFU+S+0TSVHB0bmXeUFM=";
   };
 
-  cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  cargoHash = "sha256-F3STRg61jU425VmuCV1iK8GoX10KXF6mloEzLeArtm8=";
 
   meta = {
     description = "A rust cli Helper untility for my NixOS config";
