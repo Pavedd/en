@@ -11,8 +11,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "Endersoul46";
     repo = "en";
-    rev = "d0d811bbda5954d07c32a04aa2d6222d8b28b68b";
-    hash = "sha256-dA7OMDGRdwC0VV59luxpB3sWFU+S+0TSVHB0bmXeUFM=";
+    rev = "87bc251b35b267b05b60e56aa61142ed855d5413";
+    hash = "sha256-oufX3/d0HXXBr7YUUtrQ1NF1GGpf2YwfPQSegn/Lk+c=";
   };
 
   cargoHash = "sha256-F3STRg61jU425VmuCV1iK8GoX10KXF6mloEzLeArtm8=";
@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   meta = {
     description = "A rust cli Helper untility for my NixOS config";
     homepage = "https://github.com/Endersoul46/en";
-    license = lib.licenses.unfree; # FIXME: nix-init did not find a license
+    license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "en";
   };
