@@ -6,16 +6,18 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "en";
-  version = "unstable-2025-11-30";
+  version = "unstable-2025-12-01";
 
   src = fetchFromGitHub {
     owner = "Endersoul46";
     repo = "en";
-    rev = "87bc251b35b267b05b60e56aa61142ed855d5413";
-    hash = "sha256-oufX3/d0HXXBr7YUUtrQ1NF1GGpf2YwfPQSegn/Lk+c=";
+    rev = "8245377f78e3fdf498878a688dfa362d4062046d";
+    hash = "sha256-B/OCZ6m7BJwC7dGFAjVRWuCMt/g8JuRLYxrgUXNHH7M=";
   };
 
-  cargoHash = "sha256-F3STRg61jU425VmuCV1iK8GoX10KXF6mloEzLeArtm8=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+  };
 
   meta = {
     description = "A rust cli Helper untility for my NixOS config";
