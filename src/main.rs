@@ -1,8 +1,6 @@
 use clap::{Parser};
 use en::commands::base::BaseCommands;
-use en::eval::new_eval::new_eval;
 use en::functions::update;
-use en::eval::base_eval;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -22,14 +20,14 @@ fn main() {
     let cli = Cli::parse();
     match cli.commands {
             BaseCommands::NixOS { commands } => {
-                base_eval::sub_base_eval(commands, true);
+                commands.eval(true);
             },
             BaseCommands::Home { commands } => {
-                base_eval::sub_base_eval(commands, false);
+                commands.eval(false);
             },
  
             BaseCommands::Update => update::update().expect("update failed"), 
 
-            BaseCommands::New { commands } => new_eval(commands),
+            BaseCommands::New { commands } => commands.eval(),
         }
     }

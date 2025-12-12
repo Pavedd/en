@@ -1,6 +1,9 @@
 use clap::{Subcommand};
 use crate::types;
- #[derive(Subcommand, Debug)]
+use crate::functions::{module,shell};
+
+
+#[derive(Subcommand, Debug)]
 pub enum NewCommands {
     Shell {
         #[arg(default_value = None )]
@@ -54,6 +57,42 @@ pub enum NewCommands {
     },
 }
 
+
+impl NewCommands {
+    pub fn eval(self) {
+        match self {
+            NewCommands::Shell { shell_type, name, nixpkgs, unfree, package, pkgs, env, overlays  } => {
+                if let Some(shell) = shell_type {
+                    match  shell {
+                        types::ShellType::Rust => shell::rust_shell(
+                            name,
+                            nixpkgs,
+                            unfree,
+                            package,
+                            pkgs,
+                            env,
+                            overlays
+                        ).unwrap(),
+
+                    }; 
+                } else {
+                    shell::default_shell(
+                        name,
+                        nixpkgs,
+                        unfree,
+                        package,
+                        pkgs,
+                        env,
+                        overlays
+                    ).unwrap()
+                }
+            },
+        }
+    }
+
+
+}
+
  #[derive(Subcommand, Debug)]
 pub enum SubNewCommands {
    Module {
@@ -90,7 +129,23 @@ pub enum SubNewCommands {
 
     },
 
-    Pkgs 
+}
+
+impl SubNewCommands {
+    pub fn eval(self, command_type: bool ) {
+        match self {
+            SubNewCommands::Module  {  name, import, outer_import, pkgs } => 
+                module::default_module(
+                    name,
+                    command_type,
+                    import,
+                    outer_import,
+                    pkgs
+                ).unwrap(),
+
+        }
+    }
+
 }
 
 
