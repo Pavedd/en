@@ -1,8 +1,8 @@
 use clap::{Parser};
-use en::commands::{new::NewCommands, base::BaseCommands};
+use en::commands::base::BaseCommands;
 use en::eval::new_eval::new_eval;
-use en::functions::{ module, shell, update, pkgs};
-use en::eval::{self, base_eval, new_eval};
+use en::functions::update;
+use en::eval::base_eval;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]

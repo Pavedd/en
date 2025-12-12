@@ -1,6 +1,5 @@
 use std::io::{self, Write, BufWriter};
 use std::fs::{OpenOptions};
-use crate::types;
 
 pub fn default_module (
     name: String,
