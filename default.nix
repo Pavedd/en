@@ -11,8 +11,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "Endersoul46";
     repo = "en";
-    rev = "2dcf0eb8792462baa3cec55b012a071aa5e61c18";
-    hash = "sha256-lxml0ufoU8nKTQQ6Q8R4Hk87vaKKEPmnukNpiQMnTCA=";
+    rev = "116846ebaea3f4641010884ab353832d4ad92fb0";
+    hash = "sha256-hdUN4fCBlvT2JRNRaQNAUqKKTbHjUVUGiX1J/bUPP+A=";
   };
 
   cargoLock = {
