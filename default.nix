@@ -6,13 +6,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "en";
-  version = "unstable-2025-12-18";
+  version = "unstable-2026-01-07";
 
   src = fetchFromGitHub {
-    owner = "Endersoul46";
+    owner = "Pavedd";
     repo = "en";
-    rev = "116846ebaea3f4641010884ab353832d4ad92fb0";
-    hash = "sha256-hdUN4fCBlvT2JRNRaQNAUqKKTbHjUVUGiX1J/bUPP+A=";
+    rev = "a0b08dbef827e5466637bf87190f7738842070c7";
+    hash = "sha256-zpTvER0hgjd7R/hGcpQ9H2l7hXHYKWPggjeOR4QTzQQ=";
   };
 
   cargoLock = {
@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
 
   meta = {
     description = "A rust cli Helper untility for my NixOS config";
-    homepage = "https://github.com/Endersoul46/en";
+    homepage = "https://github.com/Pavedd/en";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "en";
