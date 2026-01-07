@@ -15,6 +15,10 @@ pub enum NewCommands {
         #[arg(long, default_value = "github:nixos/nixpkgs/nixos-25.11")]
         nixpkgs: Option<String>,
 
+        #[arg(long, default_value = "3.14")]
+        python_version: Option<String>,
+
+
         #[arg(long,short , default_value_t = true)]
         unfree: bool,
 
@@ -61,7 +65,7 @@ pub enum NewCommands {
 impl NewCommands {
     pub fn eval(self) {
         match self {
-            NewCommands::Shell { shell_type, name, nixpkgs, unfree, package, pkgs, env, overlays  } => {
+            NewCommands::Shell { shell_type, name, nixpkgs, python_version, unfree, package, pkgs, env, overlays  } => {
                 if let Some(shell) = shell_type {
                     match  shell {
                         types::ShellType::Rust => shell::rust_shell(
@@ -77,7 +81,7 @@ impl NewCommands {
                         types::ShellType::Python => shell::python_shell(
                             name,
                             nixpkgs,
-                            Some("3.13".to_string()),
+                            python_version,
                             unfree,
                             package,
                             pkgs,
